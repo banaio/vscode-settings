@@ -1,0 +1,22 @@
+{
+  ".source.makefile": {
+    "makefile-target": {
+      "prefix": [
+        "makefile",
+        "makefile-target",
+        ".PHONY"
+      ],
+      "scope": "makefile",
+      "body": [
+        ".PHONY: $1",
+        "$1:",
+        "\t\t$(print_separator)",
+        "\t\t$(call print_separator,\"started $@\")",
+        "\t\t@printf \"target='%s'\\n\" \"$@\"",
+        "\t\t$(call print_separator,\"completed $@\")",
+        "\n"
+      ],
+      "description": "makefile-target"
+    }
+  }
+}

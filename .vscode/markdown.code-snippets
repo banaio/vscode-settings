@@ -1,0 +1,24 @@
+{
+  ".source.markdown": {
+    "markdown-link-code": {
+      "prefix": [
+        "markdown-link-code"
+      ],
+      "scope": "markdown",
+      "body": [
+        "* [`./$1`](./$1)."
+      ],
+      "description": "markdown-link-code"
+    },
+    "markdown-link-title": {
+      "prefix": [
+        "markdown-link-title"
+      ],
+      "scope": "markdown",
+      "body": [
+        "* [$1]($2)."
+      ],
+      "description": "markdown-title"
+    }
+  }
+}

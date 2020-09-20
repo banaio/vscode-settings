@@ -1,0 +1,50 @@
+{
+  ".source.shellscript": {
+    "shell-dir-and-file-exists": {
+      "prefix": "shell-dir-and-file-exists",
+      "scope": "shellscript",
+      "body": [
+        "if [[ ! -d \"$1\" || ! -f \"$2\" ]]; then",
+        "  echo \"dir=$1, file=$2 - does not exist\"",
+        "  # mkdir -pv $1",
+        "  # touch $2",
+        "fi"
+      ],
+      "description": "shell-dir-and-file-exists"
+    },
+    "shell-dir-exists": {
+      "prefix": "shell-dir-exists",
+      "scope": "shellscript",
+      "body": [
+        "if [[ ! -d \"$1\" ]]; then",
+        "  echo \"dir=$1 - does not exist\"",
+        "  # mkdir -pv $1",
+        "fi"
+      ],
+      "description": "shell-dir-exists"
+    },
+    "shell-file-exists": {
+      "prefix": "shell-file-exists",
+      "scope": "shellscript",
+      "body": [
+        "if [[ ! -f \"$1\" ]]; then",
+        "  echo \"file=$1 - does not exist\"",
+        "  # mkdir -pv $1",
+        "fi"
+      ],
+      "description": "shell-file-exists"
+    },
+    "shell-binary-exists": {
+      "prefix": "shell-binary-exists",
+      "scope": "shellscript",
+      "body": [
+        "if [[ ! -x \"$(command -v $1 2>/dev/null)\" ]]; then",
+        "  echo \"$(tput bold; tput setaf 1)ERROR:$(tput sgr0) NOT FOUND - command=$1\"",
+        "else",
+        "  echo \"$(tput bold; tput setaf 2)INFO:$(tput sgr0) FOUND - command=$1, path=$(command -v $1 2>/dev/null)\"",
+        "fi"
+      ],
+      "description": "shell-binary-exists"
+    }
+  }
+}

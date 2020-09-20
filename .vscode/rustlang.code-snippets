@@ -1,0 +1,12 @@
+{
+  ".source.rust": {
+    "rustlang-func": {
+      "prefix": "rustlang-func",
+      "scope": "rust",
+      "body": [
+        "TODO"
+      ],
+      "description": "rustlang-func"
+    }
+  }
+}
