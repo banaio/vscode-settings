@@ -92,10 +92,10 @@
   "go.testEnvVars": {
     "GOMAXPROCS": "32",
   },
-  "go.liveErrors": {
-    "delay": 500,
-    "enabled": true
-  },
+  // "go.liveErrors": {
+  //   "delay": 500,
+  //   "enabled": true
+  // },
   "go.useLanguageServer": true,
   "go.vetOnSave": "off",
   "go.buildOnSave": "package",
@@ -107,10 +107,10 @@
     "-parallel=32",
   ],
   "go.coverOnTestPackage": false,
-  "go.generateTestsFlags": [
-    "-parallel 32",
-    "-v"
-  ],
+  // "go.generateTestsFlags": [
+  //   "-parallel 32",
+  //   "-v"
+  // ],
   "go.vetFlags": [
     "-all"
   ],
@@ -368,7 +368,7 @@
   // //  - indentation: Use the indentation-based folding strategy.
   // "editor.foldingStrategy": "auto",
   // // Controls the font family.
-  "editor.fontFamily": " 'Iosevka Fixed', 'Iosevka-Fixed', 'Iosevka ', 'Iosevka', 'Menlo', 'monospace', monospace ",
+  "editor.fontFamily": " 'Iosevka Fixed', 'Iosevka-Fixed', 'Iosevka Fixed Extended', 'Iosevka-Fixed-Extended', 'Iosevka Extended', 'Iosevka-Extended', 'Iosevka', 'Menlo', 'monospace', monospace ",
   // Configures font ligatures or font features.
   "editor.fontLigatures": true,
   // Controls the font size in pixels.

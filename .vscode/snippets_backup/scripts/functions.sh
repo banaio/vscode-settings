@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Make shellcheck ignore this file, see https://github.com/koalaman/shellcheck/wiki/Ignore#ignoring-all-instances-in-a-file-044
+# shellcheck disable=SC2059
 set -euf \
   -o nounset \
   -o errexit \
@@ -41,9 +43,9 @@ PWD="$(pwd)"
 
 SCREEN_RESET=$(tput reset)
 SCREEN_CLEAR=$(tput clear)
-# INDENT=$(tput ht)
-INDENT="  "
+INDENT=$(tput ht)
 
+# INDENT="  "
 RESET="$(tput sgr0)"
 BOLD="$(tput bold)"
 RED="$(

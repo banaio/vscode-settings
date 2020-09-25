@@ -15,7 +15,8 @@
     cf = checkout --
     cl = checkout -
     cm = commit -m
-    d = diff
+    d = diff --word-diff=color
+    dc = diff --cached --word-diff=color
     mod = "!git --no-pager diff --name-only"
     mod-status = "!git --no-pager diff --name-status"
     dc = diff --cached

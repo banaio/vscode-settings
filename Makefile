@@ -18,8 +18,9 @@ SHELL																		:= bash
 
 export SCREEN_RESET											:= $(shell tput reset)
 export SCREEN_CLEAR											:= $(shell tput clear)
-export INDENT														:= $(shell tput ht)
 export TAB															:= $(shell printf '\011')
+export INDENT														:= $(shell tput ht)
+# export INDENT														:= "  "
 
 export RESET														:= $(shell tput sgr0)
 export BOLD   													:= $(shell tput bold)
