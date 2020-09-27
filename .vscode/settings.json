@@ -36,7 +36,7 @@
   "go.useCodeSnippetsOnFunctionSuggest": true,
   "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
   "go.enableCodeLens": {
-    "references": true,
+    "references": false,
     "runtest": true,
   },
   // "go.formatFlags": [

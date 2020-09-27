@@ -1,9 +1,8 @@
 {
   "add-package-name-and-init-method": {
     "prefix": [
-      "go",
       "go-add-package-name-and-init-method",
-      "go-apbaim"
+      "gapbaim"
     ],
     "body": [
       "package ${TM_DIRECTORY/^.+\\/(.)(.*)$/$1$2/}",
@@ -22,9 +21,8 @@
   },
   "if-err-not-nil-with-else-if-value-not-nil": {
     "prefix": [
-      "go",
       "go-if-err-not-nil-with-else-if-value-not-nil",
-      "go-giennweivnn"
+      "giennweivnn"
     ],
     "body": [
       "if err != nil {",
@@ -39,9 +37,8 @@
   },
   "new-constructor": {
     "prefix": [
-      "go",
       "go-new-constructor",
-      "go-nc"
+      "gnc"
     ],
     "body": [
       "// New${1:Type} ${4|\u200B,...|}.",
@@ -54,22 +51,70 @@
       "${0}"
     ]
   },
+  "go-new-constructor-and-struct": {
+    "prefix": [
+      "go-new-constructor-and-struct",
+      "gncas"
+    ],
+    "body": [
+      "// ${1:Type} ${2:...}",
+      "type ${1:Name} struct {",
+      "  ${0}",
+      "}",
+      "",
+      "// New${1:Type} constructor for ${1:Type}",
+      "func New${1:Type}() *$1 {",
+      "  return &$1{",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+  "go-const-error-type": {
+    "prefix": [
+      "go-const-error-type",
+      "gcet"
+    ],
+    "body": [
+      "// ${1:Type}Error ...",
+      "type ${1:Type}Error string",
+      "",
+      "// Error ...",
+      "func (e ${1:Type}Error) Error() string {",
+      "  return string(e)",
+      "}",
+      "",
+      "const (",
+      "  // Err${2:Name} ...",
+      "  Err${2:Name} = ${1:Type}Error(\"error: ${3:Err${2:Name}}\")",
+      ")",
+      ""
+    ],
+    "description": "Const \\`error\\` type"
+  },
   "struct-field": {
     "prefix": [
-      "go",
       "go-struct-field",
-      "go-sf"
+      "gsf"
     ],
     "body": [
       "// $1 ${4|\u200B,...|}.",
       "${1:FieldName} ${2:Type}$0"
     ]
   },
+  "struct-field-tag": {
+    "prefix": [
+      "go-struct-field-tag",
+      "gsft"
+    ],
+    "body": [
+      "`${1:tag_name}:\"${1:/downcase}\"`$0"
+    ]
+  },
   "struct-field-with-json-tag": {
     "prefix": [
-      "go",
       "go-struct-field-with-json-tag",
-      "go-sfj"
+      "gsfj"
     ],
     "body": [
       "// $1 ${4|\u200B,...|}.",
@@ -78,29 +123,18 @@
   },
   "struct-field-with-yaml-tag": {
     "prefix": [
-      "go",
       "go-struct-field-with-yaml-tag",
-      "go-sfy"
+      "gsfy"
     ],
     "body": [
       "// $1 ${4|\u200B,...|}.",
       "${1:FieldName} ${2:Type} `yaml:\"${1/(.*)/${1:/downcase}/}${3|\",\\,|}`${0}"
     ]
   },
-  "struct-field-tag": {
-    "prefix": [
-      "go",
-      "go-struct-field-tag",
-      "go-tagj"
-    ],
-    "body": [
-      "`${1:tag_name}:\"${1:/downcase}\"`$0"
-    ]
-  },
   "new-test-function-with-stretchr-testify-require": {
     "prefix": [
-      "go",
-      "go-new-test-function-with-stretchr-testify-require"
+      "go-new-test-function-with-stretchr-testify-require",
+      "gntfwstr"
     ],
     "body": [
       "",
@@ -121,8 +155,8 @@
   },
   "stretchr-testify-require-equal": {
     "prefix": [
-      "go",
-      "go-testify-require-equal"
+      "go-testify-require-equal",
+      "gtre"
     ],
     "body": [
       "require.Equal(${1:expected}, ${2:actual})",
@@ -131,8 +165,8 @@
   },
   "stretchr-testify-require-noerror": {
     "prefix": [
-      "go",
-      "go-testify-require-noerror"
+      "go-testify-require-noerror",
+      "gtrn"
     ],
     "body": [
       "require.NoError(${1:err})",
@@ -141,8 +175,8 @@
   },
   "stretchr-testify-require-notnil": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-require-notnil"
+      "go-stretchr-testify-require-notnil",
+      "gstrnn"
     ],
     "body": [
       "require.NotNil(${1:result})",
@@ -151,8 +185,8 @@
   },
   "stretchr-testify-require-notnilf": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-require-notnilf"
+      "go-stretchr-testify-require-notnilf",
+      "gstrnnf"
     ],
     "body": [
       "require.NotNil(${1:result}, \"testing.t.Name()=%#+v, ${1:result}=%s\", t.Name(), ${1:result})",
@@ -161,8 +195,8 @@
   },
   "stretchr-testify-require-equalerror": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-require-equalerror"
+      "go-stretchr-testify-require-equalerror",
+      "gstree"
     ],
     "body": [
       "require.EqualError(${1:actual_error}, `${0:expected_error_string}`)",
@@ -171,8 +205,8 @@
   },
   "stretchr-testify-require-noerror-and-stretchr-testify-require-notnil": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-require-noerror-and-stretchr-testify-require-notnil"
+      "go-stretchr-testify-require-noerror-and-stretchr-testify-require-notnil",
+      "gstrneastrnn"
     ],
     "body": [
       "require.NoError(${1:err})",
@@ -182,8 +216,8 @@
   },
   "new-test-function-with-stretchr-testify-assert": {
     "prefix": [
-      "go",
-      "go-new-test-function-with-stretchr-testify-assert"
+      "go-new-test-function-with-stretchr-testify-assert",
+      "gntfwsta"
     ],
     "body": [
       "",
@@ -204,8 +238,8 @@
   },
   "stretchr-testify-assert-equal": {
     "prefix": [
-      "go",
-      "go-testify-assert-equal"
+      "go-testify-assert-equal",
+      "gtae"
     ],
     "body": [
       "assert.Equal(${1:expected}, ${2:actual})",
@@ -214,8 +248,8 @@
   },
   "stretchr-testify-assert-noerror": {
     "prefix": [
-      "go",
-      "go-testify-assert-noerror"
+      "go-testify-assert-noerror",
+      "gtane"
     ],
     "body": [
       "assert.NoError(${1:err})",
@@ -224,8 +258,8 @@
   },
   "stretchr-testify-assert-notnil": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-assert-notnil"
+      "go-stretchr-testify-assert-notnil",
+      "gstann"
     ],
     "body": [
       "assert.NotNil(${1:result})",
@@ -234,8 +268,8 @@
   },
   "stretchr-testify-assert-notnilf": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-assert-notnilf"
+      "go-stretchr-testify-assert-notnilf",
+      "gstann"
     ],
     "body": [
       "assert.NotNil(${1:result}, \"testing.t.Name()=%#+v, ${1:result}=%s\", t.Name(), ${1:result})",
@@ -244,8 +278,8 @@
   },
   "stretchr-testify-assert-equalerror": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-assert-equalerror"
+      "go-stretchr-testify-assert-equalerror",
+      "gstaee"
     ],
     "body": [
       "assert.EqualError(${1:actual_error}, `${0:expected_error_string}`)",
@@ -254,8 +288,8 @@
   },
   "stretchr-testify-assert-noerror-and-stretchr-testify-assert-notnil": {
     "prefix": [
-      "go",
-      "go-stretchr-testify-assert-noerror-and-stretchr-testify-assert-notnil"
+      "go-stretchr-testify-assert-noerror-and-stretchr-testify-assert-notnil",
+      "gstanastan"
     ],
     "body": [
       "assert.NoError(${1:err})",
@@ -265,8 +299,8 @@
   },
   "testing.skipf": {
     "prefix": [
-      "go",
-      "go-testing.skipf"
+      "go-testing.skipf",
+      "gtf"
     ],
     "body": [
       "t.Skipf(\"Skipping: testing.t.Name()='%#+v', reason='TODO(${1:NO_ASSIGNEE_FOR_TODO}): needs implementing'\\n\", t.Name())",
