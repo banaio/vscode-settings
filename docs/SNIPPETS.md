@@ -1,13 +1,13 @@
 # `SNIPPETS`
 
-`docs/SNIPPETS.md` updated on `2020-09-27T20:24:07+00:00`.
+`docs/SNIPPETS.md` updated on `2020-09-29T19:21:33+00:00`.
 
 ## Snippets Links
 
 * [`../.vscode/shellscript.code-snippets`](../.vscode/shellscript.code-snippets).
 * [`../.vscode/markdown.code-snippets`](../.vscode/markdown.code-snippets).
 * [`../.vscode/makefile.code-snippets`](../.vscode/makefile.code-snippets).
-* [`../.vscode/golang.code-snippets`](../.vscode/golang.code-snippets).
+* [`../.vscode/go.code-snippets`](../.vscode/go.code-snippets).
 * [`../.vscode/rust.code-snippets`](../.vscode/rust.code-snippets).
 
 or failing that, try:
@@ -15,7 +15,7 @@ or failing that, try:
 * [`/.vscode/shellscript.code-snippets`](/.vscode/shellscript.code-snippets).
 * [`/.vscode/markdown.code-snippets`](/.vscode/markdown.code-snippets).
 * [`/.vscode/makefile.code-snippets`](/.vscode/makefile.code-snippets).
-* [`/.vscode/golang.code-snippets`](/.vscode/golang.code-snippets).
+* [`/.vscode/go.code-snippets`](/.vscode/go.code-snippets).
 * [`/.vscode/rust.code-snippets`](/.vscode/rust.code-snippets).
 
 ## Snippet Files
@@ -25,7 +25,7 @@ $ ls -1 .vscode/* | sort | grep '.code-snippets'
 .vscode/shellscript.code-snippets
 .vscode/markdown.code-snippets
 .vscode/makefile.code-snippets
-.vscode/golang.code-snippets
+.vscode/go.code-snippets
 .vscode/rust.code-snippets
 ```
 
@@ -49,7 +49,7 @@ $ ls -1 .vscode/* | sort | grep '.code-snippets'
 
 * name=`makefile-target`, prefix=`["makefile","makefile-target",".PHONY"]`.
 
-### `.vscode/golang.code-snippets`
+### `.vscode/go.code-snippets`
 
 * name=`add-package-name-and-init-method`, prefix=`["go-add-package-name-and-init-method","gapbaim"]`.
 * name=`if-err-not-nil-with-else-if-value-not-nil`, prefix=`["go-if-err-not-nil-with-else-if-value-not-nil","giennweivnn"]`.

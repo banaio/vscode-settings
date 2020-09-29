@@ -423,7 +423,7 @@
   // Controls whether the editor should highlight the active indent guide.
   "editor.highlightActiveIndentGuide": true,
   // Controls the delay in milliseconds after which the hover is shown.
-  "editor.hover.delay": 1,
+  // "editor.hover.delay": 1,
   // Controls whether the hover is shown.
   "editor.hover.enabled": true,
   // // Controls whether the hover should remain visible when mouse is moved over it.
@@ -499,7 +499,7 @@
   // },
   // // "editor.quickSuggestions": false,
   // Controls the delay in milliseconds after which quick suggestions will show up.
-  "editor.quickSuggestionsDelay": 1,
+  // "editor.quickSuggestionsDelay": 1,
   // Enable/disable the ability to preview changes before renaming
   "editor.rename.enablePreview": true,
   // Controls whether the editor auto renames on type.
