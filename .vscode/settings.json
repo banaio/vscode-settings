@@ -4,17 +4,24 @@
   // Configure settings to be overridden for [go] language.
   // https://code.visualstudio.com/docs/languages/go
   // https://github.com/golang/vscode-go/blob/master/docs/settings.md
+  // https://github.com/golang/vscode-go/blob/v0.17.1/docs/troubleshooting.md#disable-formatting
+  // "[go]": {
+  //   "editor.codeActionsOnSave": {
+  //     "source.organizeImports": true,
+  //     "source.fixAll": true,
+  //   },
+  //   "editor.defaultFormatter": "goimports",
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnType": false,
+  //   "editor.formatOnPaste": false,
+  //   // // Optional: Disable snippets, as they conflict with completion ranking.
+  //   // "editor.snippetSuggestions": "none",
+  // },
   "[go]": {
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true,
-      "source.fixAll": true,
-    },
-    // "editor.defaultFormatter": "golang.go",
-    // "editor.defaultFormatter": "goimports",
-    "editor.defaultFormatter": "gofumports",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true
+      "source.organizeImports": false
+    }
   },
   "go.autocompleteUnimportedPackages": true,
   "go.editorContextMenuCommands": {
@@ -39,81 +46,44 @@
     "references": false,
     "runtest": true,
   },
-  // "go.formatFlags": [
-  //   "-l 'github.com/banaio/vscode-settings'",
-  //   "-e",
-  //   "-v"
+  // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+  "gopls": {
+    "verboseOutput": true,
+    "verboseWorkDoneProgress": true,
+    "usePlaceholders": true,
+    "completeUnimported": true,
+    "deepCompletion": false,
+    "hoverKind": "SynopsisDocumentation",
+    // "hoverKind": "FullDocumentation",
+    // "symbolStyle": "Full",
+    // "symbolStyle": "Dynamic",
+    // "semanticTokens": true,
+    // "expandWorkspaceToModule": true,
+    // "experimentalWorkspaceModule": true,
+    // "completionBudget": "0",
+    // "completionBudget": "500ms",
+    "completionBudget": "1s",
+    "local": "github.com/banaio/vscode-settings/golang",
+  },
+  "go.languageServerFlags": [
+    "-rpc.trace"
+  ],
+  "go.trace.server": "verbose",
+  "go.logging.level": "verbose",
+  // "go.lintTool": "golangci-lint",
+  // // "--concurrency=32",
+  // // "--print-issued-lines=true",
+  // // "--issues-exit-code=0",
+  // // "--uniq-by-line=true",
+  // // "--sort-results=true",
+  // "go.lintFlags": [
+  //   "--config=${workspaceFolder}/.golangci.yml",
+  //   "--color=always",
+  //   "--print-resources-usage=true",
+  //   "--allow-parallel-runners=true",
+  //   "--verbose",
+  //   "--fast"
   // ],
-  // "go.formatTool": "goimports",
-  "go.alternateTools": {
-    "goimports": "gofumports",
-  },
-  "go.gotoSymbol.includeImports": true,
-  "go.languageServerExperimentalFeatures": {
-    "diagnostics": true,
-    "documentLink": true,
-    "format": false,
-  },
-  "go.lintOnSave": "package",
-  "go.lintTool": "golangci-lint",
-  "go.trace.server": "off",
-  // "go.languageServerFlags": [],
-  // colored-line-number|line-number|json|tab|checkstyle, default is "colored-line-number" // format: colored-line-number
-  // "${workspaceFolder}/..."
-  // "--out-format=tab",
-  // "--fast=false",
-  // "--verbose",
-  // "--trace-path=.ignore/golangci-lint/trace.log",
-  // "--cpu-profile-path=.ignore/golangci-lint/cpu_profile.log",
-  // "--mem-profile-path=.ignore/golangci-lint/mem_profile.log",
-  // "--print-resources-usage=true",
-  // "--print-issued-lines=true",
-  // "--color=always",
-  // "--issues-exit-code=0",
-  // "--uniq-by-line=true",
-  // "--sort-results=true",
-  // "--concurrency=32",
-  // "--allow-parallel-runners=true",
-  "go.lintFlags": [
-    "--config=${workspaceFolder}/.golangci.yml",
-    "--fast",
-    "--concurrency=32",
-    "--allow-parallel-runners=true"
-  ],
-  "go.toolsEnvVars": {
-    // "GL_DEBUG": "gocritic,env,loader,autogen_exclude,nolint,exec",
-    // "GL_MEM_LOG_EVERY": "1",
-    // "GL_TEST_RUN": "1",
-    // "GOLANGCI_COM_RUN": "",
-    // "HELP_RUN": "1",
-    "GOMAXPROCS": "32",
-  },
-  "go.gotoSymbol.includeGoroot": true,
-  "go.testEnvVars": {
-    "GOMAXPROCS": "32",
-  },
-  // "go.liveErrors": {
-  //   "delay": 500,
-  //   "enabled": true
-  // },
-  "go.useLanguageServer": true,
-  "go.vetOnSave": "off",
-  "go.buildOnSave": "package",
-  "go.coverOnSave": false,
-  "go.coverOnSingleTest": false,
-  "go.coverOnSingleTestFile": false,
-  "go.testFlags": [
-    "-v",
-    "-parallel=32",
-  ],
-  "go.coverOnTestPackage": false,
-  // "go.generateTestsFlags": [
-  //   "-parallel 32",
-  //   "-v"
-  // ],
-  "go.vetFlags": [
-    "-all"
-  ],
   // yaml:BEGIN
   "yaml.completion": true,
   "yaml.format.bracketSpacing": true,
@@ -1752,6 +1722,7 @@
   "terminal.explorerKind": "external",
   // External Terminal
   // Customizes which terminal to run on Linux.
+  "terminal.external.linuxExec": "/usr/bin/gnome-terminal",
   "terminal.external.linuxExec/": "xterm",
   // Customizes which terminal application to run on macOS.
   "terminal.external.osxExec": "Terminal.app",
@@ -1854,7 +1825,7 @@
   "terminal.integrated.shell.windows": null,
   // The command line arguments to use when on the Linux terminal.
   "terminal.integrated.shellArgs.linux": [
-    // "-l"
+    "-l"
   ],
   // The command line arguments to use when on the macOS terminal.
   "terminal.integrated.shellArgs.osx": [

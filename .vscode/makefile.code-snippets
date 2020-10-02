@@ -1,7 +1,6 @@
 {
   "makefile-target": {
     "prefix": [
-      "makefile",
       "makefile-target",
       ".PHONY"
     ],
