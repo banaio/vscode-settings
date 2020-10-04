@@ -338,7 +338,7 @@
   // //  - indentation: Use the indentation-based folding strategy.
   // "editor.foldingStrategy": "auto",
   // // Controls the font family.
-  "editor.fontFamily": " 'Iosevka Fixed', 'Iosevka-Fixed', 'Iosevka Fixed Extended', 'Iosevka-Fixed-Extended', 'Iosevka Extended', 'Iosevka-Extended', 'Iosevka', 'Menlo', 'monospace', monospace ",
+  "editor.fontFamily": " 'Iosevka', 'Iosevka Fixed', 'Iosevka-Fixed', 'Iosevka Fixed Extended', 'Iosevka-Fixed-Extended', 'Iosevka Extended', 'Iosevka-Extended', 'Iosevka', 'Menlo', 'monospace', monospace ",
   // Configures font ligatures or font features.
   "editor.fontLigatures": true,
   // Controls the font size in pixels.

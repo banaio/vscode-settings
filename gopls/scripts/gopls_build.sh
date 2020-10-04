@@ -20,6 +20,7 @@ function print_separators() {
 
 DIR_CURRENT="$(pwd)"
 DIR_CODE="${DIR_CURRENT}/code"
+DIR_REPO="${DIR_CODE}/tools"
 DIR_BUILDS="${DIR_CURRENT}/builds/$(date -u +'%Y_%m_%d-%k_%M_%S_%Z')"
 
 function golps_update_repo() {
@@ -28,33 +29,53 @@ function golps_update_repo() {
   fi
   cd "${DIR_CODE}"
 
-  if [[ ! -d "tools" ]]; then
+  if [[ ! -d "${DIR_REPO}" ]]; then
+    gh repo clone banaio/tools
     # gh repo clone git@github.com:banaio/tools.git
-    git clone git@github.com:banaio/tools.git
+    # git clone git@github.com:banaio/tools.git
   fi
   cd tools
 
+  git stash
+  echo
+  git remote --v
+  echo
   git fetch --all
+  echo
+  git checkout master
+  echo
+  git rebase upstream/master
   echo
   git log --graph -n2
   echo
-  ls -t -lah
+  # checkout previous branch
+  git checkout -
+  echo
+  git stash pop || true
+  # ls -t -lah
   echo
 }
 function golps_build() {
-  cd "${DIR_CODE}"
-  ls -C1
+  if [[ ! -d "${DIR_REPO}" ]]; then
+    printf '%b' "$(tput bold)" "$(tput setaf 1)" "ERROR: " "$(tput sgr0)" "repository directory ${DIR_REPO} does not exist" "\n"
+    exit 1
+  fi
+  cd "${DIR_REPO}"
+  go build -o gopls.exe ./gopls/main.go
+  echo
+  ls -lah -t
 }
 
 function gopls_all() {
   print_separators ">"
   golps_update_repo
+  echo
   print_separators
+  echo
   golps_build
   print_separators "<"
 }
 
 mkdir -vp "${DIR_CODE}"
 cd "${DIR_CODE}"
-echo
 gopls_all
