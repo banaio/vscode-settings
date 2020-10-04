@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Usage: gopls_build.sh
 #
-# Documentation: TODO.
+# Documentation: rebase master branch of tools into mine, then generate latest `gopls.exe` binary.
 
 set -euf \
   -o nounset \
@@ -21,7 +21,6 @@ function print_separators() {
 DIR_CURRENT="$(pwd)"
 DIR_CODE="${DIR_CURRENT}/code"
 DIR_REPO="${DIR_CODE}/tools"
-DIR_BUILDS="${DIR_CURRENT}/builds/$(date -u +'%Y_%m_%d-%k_%M_%S_%Z')"
 
 function golps_update_repo() {
   if [[ ! -d "${DIR_CODE}" ]]; then
