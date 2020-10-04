@@ -17,25 +17,25 @@ UNAME_S="$(uname -s)"
 PATH_CODE=""
 
 if [[ "${UNAME_S}" = "Linux" ]]; then
-  # set -euf \
-  #   -o nounset \
-  #   -o errexit \
-  #   -o errtrace \
-  #   -o noclobber \
-  #   -o pipefail \
-  #   -o posix \
-  #   -o functrace \
-  #   -o notify
+  set -euf \
+    -o nounset \
+    -o errexit \
+    -o errtrace \
+    -o noclobber \
+    -o pipefail \
+    -o posix \
+    -o functrace \
+    -o notify
 
-  # shopt -s \
-  #   extglob \
-  #   globstar \
-  #   nullglob \
-  #   failglob \
-  #   gnu_errfmt \
-  #   localvar_unset \
-  #   dotglob \
-  #   xpg_echo
+  shopt -s \
+    extglob \
+    globstar \
+    nullglob \
+    failglob \
+    gnu_errfmt \
+    localvar_unset \
+    dotglob \
+    xpg_echo
 
   function print_separators() {
     printf -- '-%.0s' $(seq 1 $(($(tput cols) - 1))) $'\n'
@@ -102,7 +102,9 @@ printf '%b' "$(tput bold)" "$(tput setaf 2)" '$ ' "${PATH_CODE}" ' --status' "$(
 echo "${EXAMPLE_STATUS}"
 
 print_separators
+echo
 
+# '--disable-gpu-driver-bug-workarounds'
 ARGS_GPU=(
   '--ignore-gpu-blacklist'
   '--enable-gpu-rasterization'
@@ -139,8 +141,10 @@ printf '%b' \
   "launching:" "\n" \
   "$(tput bold)" "$(tput setaf 2)" "${PATH_CODE}" ' ' "$(echo "$@")" "$(tput sgr0)" \
   "\n"
+echo
 
 print_separators
+echo
 
 export TERM="xterm-256color"
 set -vx
